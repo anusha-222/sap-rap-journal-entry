@@ -1,0 +1,126 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'jeid'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'jeid'
+annotate view ZC_FI_JE_ITEM with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @EndUserText.label: 'JE id'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'JE id'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'JE id'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  jeid;
+  
+  @EndUserText.label: 'item no'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'item no'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'item no'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  itemno;
+  
+  @EndUserText.label: 'gl account'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'gl account'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'gl account'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  glaccount;
+  
+  @EndUserText.label: 'cost center'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'cost center'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'cost center'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  costcenter;
+  
+  @EndUserText.label: 'profit center'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'profit center'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'profit center'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  profitcenter;
+  
+  @EndUserText.label: 'debit credit'
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'debit credit'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'debit credit'
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  debitcredit;
+  
+  @EndUserText.label: 'amount'
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'amount'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: 'amount'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  amount;
+  
+  @EndUserText.label: 'item text'
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'item text'
+  } ]
+  @UI.lineItem: [ {
+    position: 80 , 
+    label: 'item text'
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  itemtext;
+}
