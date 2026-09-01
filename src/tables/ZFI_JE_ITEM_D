@@ -1,0 +1,21 @@
+@EndUserText.label : 'Draft table for entity ZI_FI_JE_ITEM'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zfi_je_item_d {
+
+  key mandt    : mandt not null;
+  key jeid     : abap.numc(10) not null;
+  key itemno   : abap.numc(3) not null;
+  glaccount    : abap.char(10);
+  costcenter   : abap.char(10);
+  profitcenter : abap.char(10);
+  debitcredit  : abap.char(1);
+  @Semantics.amount.currencyCode : 'zfi_je_item_d.currency'
+  amount       : abap.curr(15,2);
+  currency     : abap.cuky;
+  itemtext     : abap.char(100);
+  "%admin"     : include sych_bdl_draft_admin_inc;
+
+}
