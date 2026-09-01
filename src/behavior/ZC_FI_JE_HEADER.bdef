@@ -1,1 +1,42 @@
+projection implementation in class ZBP_C_FI_JE_HEADER unique;
+strict ( 2 );
+extensible;
+use draft;
+use side effects;
+define behavior for ZC_FI_JE_HEADER alias ZcFiJeHeader
+extensible
+{
+  // Standard CRUD operations
+  use create;
+  use update;
+  use delete;
 
+  // Draft actions
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+   // Journal Entry workflow actions
+  use action submit;
+  use action approve;
+  use action post;
+  use action reverse;
+
+  // Header to item composition
+  use association _ITEM { create; with draft; }
+
+}
+
+define behavior for ZC_FI_JE_ITEM alias ZcFiJeItem
+extensible
+{
+  // Item operations
+  use update;
+  use delete;
+
+  // Item to header association
+  use association _HEADER { with draft; }
+
+}
