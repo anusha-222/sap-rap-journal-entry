@@ -1,0 +1,20 @@
+@EndUserText.label : 'Journal Item table'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zfi_je_item {
+
+  key client    : abap.clnt not null;
+  key je_id     : abap.numc(10) not null;
+  key item_no   : abap.numc(3) not null;
+  gl_account    : abap.char(10);
+  cost_center   : abap.char(10);
+  profit_center : abap.char(10);
+  debit_credit  : abap.char(1);
+  @Semantics.amount.currencyCode : 'zfi_je_item.currency'
+  amount        : abap.curr(15,2);
+  currency      : abap.cuky;
+  item_text     : abap.char(100);
+
+}
