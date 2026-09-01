@@ -321,6 +321,8 @@ The application implements RAP validations to prevent invalid Journal Entries fr
 - Document Date cannot be in the future.
 - Posting Date is mandatory.
 - Document Type is mandatory.
+  
+<img width="959" height="416" alt="Validation errors" src="https://github.com/user-attachments/assets/24d25ad7-78af-4aa4-9ab2-0a19785f0a35" />
 
 ### Line Item Validation
 Every Journal Entry Item must contain a G/L Account.
@@ -338,7 +340,6 @@ Total Debit = Total Credit
 Each line item amount must be greater than zero.
 
 Amount > 0
-<img width="959" height="416" alt="Validation errors" src="https://github.com/user-attachments/assets/24d25ad7-78af-4aa4-9ab2-0a19785f0a35" />
 
 <img width="959" height="415" alt="Validation amount error" src="https://github.com/user-attachments/assets/4bca7b89-bdb7-4ef0-90e2-5e446458ea66" />
 
@@ -465,41 +466,44 @@ The UI dynamically reflects the current Journal Entry status and available actio
 ## Business Process Example
 A typical scenario is:
 
-[Main Page](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/1.Main%20Page.png)
+<img width="959" height="416" alt="Main Page" src="https://github.com/user-attachments/assets/19f94ca7-9c35-4533-97a5-4ffbe8a2b599" />
 
 ### Step 1 — Create
 Status = Draft
 A Journal Entry ID is automatically assigned.
-[Create Journal Entry](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/2.Create%20Journal%20Entry%20Header.png)
-[Journal Entry Header](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/3.Journal%20Entry%20Header.png)
+<img width="959" height="412" alt="Create Journal Entry Header" src="https://github.com/user-attachments/assets/271bfb64-b95f-4e74-a806-4cd34695d5e6" />
+
+<img width="959" height="450" alt="Journal Entry Header" src="https://github.com/user-attachments/assets/9e61d2e3-f949-4105-9cff-890436aef566" />
 
 ### Step 2 — Add Items
 Example:
 Item 1 → Debit  10,000
 Item 2 → Credit 10,000
 The Journal Entry is balanced.
-[Create Line item](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/4.Line%20items%20input.png)
-[Line items](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/5.Line%20items%20of%20journal%20entry.png)
-
-[Created Journal Entry](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/6.Journal%20Entry%20created%20in%20draft%20status.png)
+<img width="959" height="416" alt="Line items input" src="https://github.com/user-attachments/assets/6b60518f-3deb-414c-9da4-f9711a829a11" />
+<img width="959" height="413" alt="Line items of journal entry" src="https://github.com/user-attachments/assets/5e1d4dba-2a1c-4e8c-9ddd-75c94aa25b9b" />
+<img width="959" height="409" alt="Journal Entry created in draft status" src="https://github.com/user-attachments/assets/bf2c9635-fdd6-45e1-a4fa-2a84e8df9878" />
 
 ### Step 3 — Submit
 Draft → Submitted
-[Submit Status](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/7.After%20submitted.png)
+<img width="959" height="415" alt="After submitted" src="https://github.com/user-attachments/assets/938d337b-ce55-4881-a1c4-c952def60ca7" />
+
 
 ### Step 4 — Approve
 Submitted → Approved
-[Approved Status](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/8.After%20Approval.png)
+<img width="959" height="412" alt="After Approval" src="https://github.com/user-attachments/assets/201c5f71-e790-40c4-8ec2-24482396536e" />
 
 ### Step 5 — Post
 Approved → Posted
-[Posted Status](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/9.After%20Post.png)
+<img width="959" height="413" alt="After Post" src="https://github.com/user-attachments/assets/27b32028-d480-4dd8-9ae2-66d8ba6dd9d0" />
+
 
 ### Step 6 — Reverse
 A new reversal Journal Entry is generated with opposite Debit/Credit indicators.
-[Reversal Posted](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/10.Reversal%20Document%20created.png)
-[Reversal Document](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/11.Reversal%20Document.png)
-[Line Items of Reversal document](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/12.Line%20items%20of%20reversal%20document.png)
+<img width="959" height="410" alt="Reversal Document created" src="https://github.com/user-attachments/assets/10a0b30f-73da-4623-83c8-2a7b0c008162" />
+<img width="959" height="417" alt="Reversal Document" src="https://github.com/user-attachments/assets/5494836a-a750-4e45-9b19-bb9928a93490" />
+<img width="959" height="416" alt="Line items of reversal document" src="https://github.com/user-attachments/assets/56153879-ec2c-4a21-b67f-efc946e09675" />
+
 
 Original JE
      ↓
