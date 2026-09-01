@@ -462,6 +462,7 @@ The UI dynamically reflects the current Journal Entry status and available actio
 ## Business Process Example
 A typical scenario is:
 
+[Main Page](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/1.Main%20Page.png)
 ### Step 1 — Create
 Status = Draft
 A Journal Entry ID is automatically assigned.
