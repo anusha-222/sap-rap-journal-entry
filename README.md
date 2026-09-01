@@ -338,8 +338,9 @@ Total Debit = Total Credit
 Each line item amount must be greater than zero.
 
 Amount > 0
-[Validations](screenshots/14.Validation-errors.png)
-[Amount Validation](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/15.Validation%20amount%20error.png)
+<img width="959" height="416" alt="Validation errors" src="https://github.com/user-attachments/assets/24d25ad7-78af-4aa4-9ab2-0a19785f0a35" />
+
+<img width="959" height="415" alt="Validation amount error" src="https://github.com/user-attachments/assets/4bca7b89-bdb7-4ef0-90e2-5e446458ea66" />
 
 ## Authorization
 The application uses RAP authorization concepts including:
