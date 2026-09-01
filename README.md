@@ -45,7 +45,7 @@ The business process follows:
  SAP HANA                                             Persistence 
 
 ## Application Architecture
-
+```mermaid
 SAP Fiori UI
       |
       ↓
@@ -68,7 +68,7 @@ Behavior Pool
       |
       ↓
 Persistent Database Tables
-
+```
 
 The Journal Entry Header is the **composition root** and contains Journal Entry Items as dependent child entities.
 
