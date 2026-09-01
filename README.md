@@ -338,7 +338,7 @@ Total Debit = Total Credit
 Each line item amount must be greater than zero.
 
 Amount > 0
-[Validations](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/14.Validation%20errors.png)
+[Validations](screenshots/14.Validation-errors.png)
 [Amount Validation](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/15.Validation%20amount%20error.png)
 
 ## Authorization
