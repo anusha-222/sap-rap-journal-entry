@@ -1,0 +1,25 @@
+@EndUserText.label : 'Jourmal Header table'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zfi_je_header {
+
+  key client       : abap.clnt not null;
+  key je_id        : abap.numc(10) not null;
+  company_code     : abap.char(4);
+  fiscal_year      : abap.numc(4);
+  document_date    : abap.dats;
+  posting_date     : abap.dats;
+  document_type    : abap.char(2);
+  currency         : abap.cuky;
+  @Semantics.amount.currencyCode : 'zfi_je_header.currency'
+  total_amount     : abap.curr(15,2);
+  status           : abap.char(1);
+  created_by       : abap.char(12);
+  created_at       : abap.utclong;
+  changed_by       : abap.char(12);
+  changed_at       : abap.utclong;
+  reversal_of_jeid : abap.numc(10);
+
+}
