@@ -1,1 +1,200 @@
+managed implementation in class zbp_i_fi_je_header unique;
 
+strict ( 2 );
+
+with draft;
+
+define behavior for ZI_FI_JE_HEADER alias journalentry
+
+  persistent table zfi_je_header
+  draft table zfi_je_header_d
+
+  lock master
+  total etag changedat
+
+  authorization master ( instance )
+
+  early numbering
+
+{
+  // Header CRUD operations
+  create ( authorization : global );
+  update;
+  delete ( authorization : update );
+
+  // Backend-controlled fields
+  field ( readonly ) jeid, changedat, reversalofjeid;
+
+  // Composition with line items
+  association _item {
+    create;
+    with draft;
+  }
+
+  // Draft actions
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+
+  // Draft preparation
+  draft determine action Prepare
+  {
+    validation validateheader;
+    validation validatelineitems;
+    validation validatebalance;
+  }
+
+  // Validations
+  validation validateheader
+    on save
+    {
+      create;
+      update;
+      field documentdate, postingdate, documenttype;
+    }
+
+  validation validatelineitems
+    on save
+    {
+      create;
+      update;
+      delete;
+    }
+
+  validation validatebalance
+    on save
+    {
+      create;
+      update;
+      delete;
+    }
+
+  // Determinations
+  determination determinefiscalyear
+    on modify
+    {
+      create;
+      field postingdate;
+    }
+
+  determination determinestatus
+    on modify
+    {
+      create;
+    }
+
+  determination determinecreatedby
+    on modify
+    {
+      create;
+    }
+
+  // Journal Entry workflow actions
+  action ( features : instance,
+           authorization : instance ) submit;
+
+  action ( features : instance,
+           authorization : instance ) approve;
+
+  action ( features : instance,
+           authorization : instance ) post;
+
+  action ( features : instance,
+           authorization : instance ) reverse;
+
+  // Refresh UI state after workflow actions
+  side effects
+  {
+    action submit affects field status,
+                    permissions( action submit ),
+                    permissions( action approve ),
+                    permissions( action post ),
+                    permissions( action reverse );
+
+    action approve affects field status,
+                     permissions( action submit ),
+                     permissions( action approve ),
+                     permissions( action post ),
+                     permissions( action reverse );
+
+    action post affects field status,
+                   permissions( action submit ),
+                   permissions( action approve ),
+                   permissions( action post ),
+                   permissions( action reverse );
+
+    action reverse affects field reversalofjeid,
+                      permissions( action submit ),
+                      permissions( action approve ),
+                      permissions( action post ),
+                      permissions( action reverse );
+  }
+
+  // Persistence mapping
+  mapping for zfi_je_header corresponding
+  {
+    jeid           = je_id;
+    companycode    = company_code;
+    fiscalyear     = fiscal_year;
+    documentdate   = document_date;
+    postingdate    = posting_date;
+    documenttype   = document_type;
+    currency       = currency;
+    totalamount    = total_amount;
+    status         = status;
+    createdby      = created_by;
+    createdat      = created_at;
+    changedby      = changed_by;
+    changedat      = changed_at;
+    reversalofjeid = reversal_of_jeid;
+  }
+}
+
+
+define behavior for ZI_FI_JE_ITEM alias journalitem
+
+  persistent table zfi_je_item
+  draft table zfi_je_item_d
+
+  lock dependent by _header
+  authorization dependent by _header
+
+  early numbering
+
+{
+  // Item CRUD operations
+  update;
+  delete;
+
+  // Backend-controlled item identifiers
+  field ( readonly ) jeid, itemno;
+
+  determination determinetotalamount
+  on modify
+  {
+    create;
+    update;
+    delete;
+    field amount;
+  }
+
+  // Association to header
+  association _header {
+    with draft;
+  }
+
+  // Persistence mapping
+  mapping for zfi_je_item corresponding
+  {
+    jeid         = je_id;
+    itemno       = item_no;
+    glaccount    = gl_account;
+    costcenter   = cost_center;
+    profitcenter = profit_center;
+    debitcredit  = debit_credit;
+    amount       = amount;
+    currency     = currency;
+    itemtext     = item_text;
+  }
+}
