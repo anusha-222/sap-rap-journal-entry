@@ -338,6 +338,8 @@ Total Debit = Total Credit
 Each line item amount must be greater than zero.
 
 Amount > 0
+[Validations](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/14.Validation%20errors.png)
+[Amount Validation](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/15.Validation%20amount%20error.png)
 
 ## Authorization
 The application uses RAP authorization concepts including:
@@ -463,27 +465,40 @@ The UI dynamically reflects the current Journal Entry status and available actio
 A typical scenario is:
 
 [Main Page](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/1.Main%20Page.png)
+
 ### Step 1 — Create
 Status = Draft
 A Journal Entry ID is automatically assigned.
+[Create Journal Entry](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/2.Create%20Journal%20Entry%20Header.png)
+[Journal Entry Header](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/3.Journal%20Entry%20Header.png)
 
 ### Step 2 — Add Items
 Example:
 Item 1 → Debit  10,000
 Item 2 → Credit 10,000
 The Journal Entry is balanced.
+[Create Line item](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/4.Line%20items%20input.png)
+[Line items](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/5.Line%20items%20of%20journal%20entry.png)
+
+[Created Journal Entry](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/6.Journal%20Entry%20created%20in%20draft%20status.png)
 
 ### Step 3 — Submit
 Draft → Submitted
+[Submit Status](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/7.After%20submitted.png)
 
 ### Step 4 — Approve
 Submitted → Approved
+[Approved Status](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/8.After%20Approval.png)
 
 ### Step 5 — Post
 Approved → Posted
+[Posted Status](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/9.After%20Post.png)
 
 ### Step 6 — Reverse
 A new reversal Journal Entry is generated with opposite Debit/Credit indicators.
+[Reversal Posted](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/10.Reversal%20Document%20created.png)
+[Reversal Document](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/11.Reversal%20Document.png)
+[Line Items of Reversal document](https://github.com/anusha-222/sap-rap-journal-entry/blob/main/screenshots/12.Line%20items%20of%20reversal%20document.png)
 
 Original JE
      ↓
