@@ -117,6 +117,7 @@ The line item contains:
 - Item Text
 
 ## Entity Relationship
+```mermaid
 ZI_FI_JE_HEADER
        |
        | 1
@@ -126,7 +127,7 @@ ZI_FI_JE_HEADER
        | 0..*
        ↓
 ZI_FI_JE_ITEM
-
+```
 The Header acts as the composition root, while Items are dependent entities.
 
 ## CDS Data Model
@@ -203,6 +204,7 @@ The next available number is assigned to a newly created Journal Entry.
 Journal Entry Items are also numbered automatically within their respective Journal Entry.
 
 ## Journal Entry Status Flow
+```mermaid
 Draft (D)
    |
    | Submit
@@ -220,7 +222,7 @@ Posted (P)
    | Reverse
    ↓
 New Reversal Journal Entry
-
+```
 
 Each action validates the current status before performing the transition.
 
@@ -299,20 +301,21 @@ The implementation uses RAP EML to read the associated Items and update the Head
 Fiscal Year is automatically derived from the Posting Date.
 
 Example:
+```mermaid
 Posting Date: 2026-08-31
        ↓
 Fiscal Year: 2026
-
+```
 
 This logic is implemented as a RAP determination triggered by creation and changes to the Posting Date.
 
 ## Created By Determination
 The Created By field is automatically populated using the current SAP user:
-
+```mermaid
 SY-UNAME
    ↓
 Created By
-
+```
 ## Validations
 The application implements RAP validations to prevent invalid Journal Entries from being saved.
 
@@ -351,12 +354,13 @@ The application uses RAP authorization concepts including:
 - Creator-based update and submit authorization
 
 Draft update and submit operations can be restricted using:
+```mermaid
 Created By
      +
 Current User
      +
 Document Status
-
+```
 ## Dynamic Feature Control
 Instance feature control dynamically determines whether actions are enabled or disabled.
 
@@ -504,13 +508,13 @@ A new reversal Journal Entry is generated with opposite Debit/Credit indicators.
 <img width="959" height="417" alt="Reversal Document" src="https://github.com/user-attachments/assets/5494836a-a750-4e45-9b19-bb9928a93490" />
 <img width="959" height="416" alt="Line items of reversal document" src="https://github.com/user-attachments/assets/56153879-ec2c-4a21-b67f-efc946e09675" />
 
-
+```mermaid
 Original JE
      ↓
    Reverse
      ↓
 New Reversal JE
-
+```
 
 ## Key RAP Concepts Demonstrated
 - Managed RAP
@@ -539,6 +543,7 @@ New Reversal JE
 ## Key Technical Highlights
 ### 1. Controlled Status Workflow
 The Journal Entry cannot skip business-process stages.
+```mermaid
 Draft
   ↓
 Submit
@@ -552,7 +557,7 @@ Approved
 Post
   ↓
 Posted
-
+```
 Each action performs a server-side status check.
 
 ### 2. Automatic Reversal Creation
@@ -576,6 +581,7 @@ Action availability is determined from the current document status and reversal 
 The implementation uses EML and RAP transactional processing for entity reads, updates, and reversal creation.
 
 ## Project Structure
+```mermaid
 sap-rap-journal-entry/
 │
 ├── README.md
@@ -605,7 +611,7 @@ sap-rap-journal-entry/
         ├── ZBP_I_FI_JE_HEADER.abap
         └── ZCL_FILL_JE_DATA.abap
 
-
+```
 ## Learning Outcomes
 This project provides practical experience in building a transactional business application using modern SAP ABAP development techniques.
 
