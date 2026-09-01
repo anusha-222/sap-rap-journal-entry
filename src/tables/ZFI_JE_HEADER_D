@@ -1,0 +1,26 @@
+@EndUserText.label : 'Draft table for entity ZI_FI_JE_HEADER'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zfi_je_header_d {
+
+  key mandt      : mandt not null;
+  key jeid       : abap.numc(10) not null;
+  companycode    : abap.char(4);
+  fiscalyear     : abap.numc(4);
+  documentdate   : abap.dats;
+  postingdate    : abap.dats;
+  documenttype   : abap.char(2);
+  currency       : abap.cuky;
+  @Semantics.amount.currencyCode : 'zfi_je_header_d.currency'
+  totalamount    : abap.curr(15,2);
+  status         : abap.char(1);
+  createdby      : abap.char(12);
+  createdat      : abap.utclong;
+  changedby      : abap.char(12);
+  changedat      : abap.utclong;
+  reversalofjeid : abap.numc(10);
+  "%admin"       : include sych_bdl_draft_admin_inc;
+
+}
